@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:28:05 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/04/27 13:37:11 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/04/27 15:56:10 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ int	ft_printf(const char *fmt, ...)
 		{
 			count += ft_select_conversion(ap, *(fmt + 1));
 			fmt++;
-		}	
-		fmt++;
+		}
+		if (*fmt)	
+			fmt++;
 	}
 	va_end(ap);
 	return (count);

@@ -26,7 +26,7 @@ int		ft_put_c(int c);
 int		ft_put_s(char *str);
 int		ft_put_p(void *ptr);
 int		ft_put_di(int nbr);
-int		ft_put_uxx(unsigned long nbr, char format);
+int		ft_put_uxx(unsigned int nbr, char format);
 void	ft_putnbr_base_fd(unsigned long nbr, char *base, int fd, int *count);
 
 #endif

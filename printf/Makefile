@@ -5,8 +5,7 @@ MAKE	= make
 LIBFT	= ./libft/libft.a
 SRC_DIR = .
 SRCS	= ft_printf.c \
-		  ft_put_and_count.c \
-		  ft_putnbr_base_fd.c
+		  ft_put_and_count.c
 OBJS	= $(SRCS:.c=.o)
 
 %.o:%.c
@@ -20,7 +19,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
-	$(MAKE) clean -C ./libft
+	$(MAKE) fclean -C ./libft
 	rm -f $(OBJS)
 
 fclean: clean

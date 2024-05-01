@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 13:37:43 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/04/27 13:40:36 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:36:17 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ int	ft_put_di(int nbr)
 	return (count);
 }
 
-int	ft_put_uxx(unsigned int nbr, char format)
+int	ft_put_uxx(unsigned int nbr, char character)
 {
 	int	count;
 
 	count = 0;
-	if (format == 'u')
-		ft_putnbr_base_fd((unsigned long)nbr, DECIMAL, 1, &count);
-	if (format == 'x')
-		ft_putnbr_base_fd((unsigned long)nbr, HEX_LOW, 1, &count);
-	if (format == 'X')
-		ft_putnbr_base_fd((unsigned long)nbr, HEX_UP, 1, &count);
+	if (character == 'u')
+		ft_putnbr_base_fd(nbr, DECIMAL, 1, &count);
+	if (character == 'x')
+		ft_putnbr_base_fd(nbr, HEX_LOW, 1, &count);
+	if (character == 'X')
+		ft_putnbr_base_fd(nbr, HEX_UP, 1, &count);
 	return (count);
 }

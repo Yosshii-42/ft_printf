@@ -6,11 +6,22 @@
 /*   By: yotsurud <yotsurud@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:28:05 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/04/27 15:56:10 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/04/29 19:40:24 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_putnbr_base_fd(unsigned long nbr, char *base, int fd, int *count)
+{
+	unsigned long		base_len;
+
+	base_len = (unsigned long)ft_strlen(base);
+	if (nbr >= base_len)
+		ft_putnbr_base_fd(nbr / base_len, base, fd, count);
+	ft_putchar_fd(base[nbr % base_len], fd);
+	(*count)++;
+}
 
 int	ft_select_conversion(va_list ap, const char character)
 {
@@ -45,12 +56,9 @@ int	ft_printf(const char *fmt, ...)
 	{
 		if (*fmt != '%')
 			count += ft_put_c(*fmt);
-		else if (*fmt == '%')
-		{
-			count += ft_select_conversion(ap, *(fmt + 1));
-			fmt++;
-		}
-		if (*fmt)	
+		else if (*fmt == '%' && *(fmt + 1))
+			count += ft_select_conversion(ap, *(++fmt));
+		if (*fmt)
 			fmt++;
 	}
 	va_end(ap);

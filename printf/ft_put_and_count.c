@@ -20,13 +20,20 @@ int	ft_put_c(int c)
 
 int	ft_put_s(char *str)
 {
+	int	count;
+
+	count = 0;
 	if (!str)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (ft_strlen("(null)"));
+		write(1, "(null)", 6);
+		return (6);
 	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	while (*str)
+	{
+		write(1, str++, 1);
+		count++;
+	}
+	return (count);
 }
 
 int	ft_put_p(void *ptr)
@@ -44,16 +51,17 @@ int	ft_put_p(void *ptr)
 int	ft_put_di(int nbr)
 {
 	int	count;
+	long	num;
 
 	count = 0;
-	ft_putnbr_fd(nbr, 1);
-	if (nbr <= 0)
-		count++;
-	while (nbr != 0)
+	num = (long)nbr;
+	if (num < 0)
 	{
+		ft_putchar_fd('-', 1);
+		num = -num;
 		count++;
-		nbr /= 10;
 	}
+	ft_putnbr_base_fd((unsigned int)num, DECIMAL, 1, &count);
 	return (count);
 }
 

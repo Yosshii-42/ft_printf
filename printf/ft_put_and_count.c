@@ -6,7 +6,7 @@
 /*   By: yotsurud <yotsurud@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 13:37:43 by yotsurud          #+#    #+#             */
-/*   Updated: 2024/04/28 16:36:17 by yotsurud         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:53:18 by yotsurud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_put_p(void *ptr)
 
 int	ft_put_di(int nbr)
 {
-	int	count;
+	int		count;
 	long	num;
 
 	count = 0;
